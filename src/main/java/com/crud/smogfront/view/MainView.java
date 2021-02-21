@@ -10,7 +10,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 
-@Route("main") // http://localhost:8080/main
+@Route("smog") // http://localhost:8080/main
 public class MainView extends VerticalLayout {
     private UserService userService = UserService.getInstance();
     private Grid grid = new Grid<>(User.class);
@@ -23,7 +23,7 @@ public class MainView extends VerticalLayout {
         filter.setClearButtonVisible(true);
         filter.setValueChangeMode(ValueChangeMode.EAGER);
         filter.addValueChangeListener(e -> update());
-        grid.setColumns("firstName", "lastName", "addressCity");
+        grid.setColumns("firstName", "lastName", "addressCity","addressProvince");
 
         addNewUser.addClickListener(e -> {
             grid.asSingleSelect().clear();

@@ -56,6 +56,7 @@ public class ApiClient {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<String> request = new HttpEntity<>(jsonContent, headers);
+        System.out.println(user.getId());
 
         return restTemplate.postForObject(apiConfig.getApiEndpointUserPost(), request, UserDto.class);
 
@@ -63,8 +64,9 @@ public class ApiClient {
     public void deleteUser (final User user) {
         RestTemplate restTemplate = new RestTemplate();
         ApiConfig apiConfig = new ApiConfig();
-        URI url = UriComponentsBuilder.fromHttpUrl(apiConfig.getApiEndpointUserDelete())
-                .queryParam("Id", user.getId())
+        LOGGER.info("REST API Smog-> deleteUser");
+
+        URI url = UriComponentsBuilder.fromHttpUrl(apiConfig.getApiEndpointUserDelete()+"/"+user.getId())
                 .build().encode().toUri();
         restTemplate.delete(url);
     }

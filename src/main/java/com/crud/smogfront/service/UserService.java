@@ -25,7 +25,7 @@ public class UserService {
     }
     public List<User> findByFinder(String finder) {
         return listOfUsers.stream()
-                .filter(user -> user.getFirstName().concat(user.getLastName()).contains(finder))
+                .filter(user -> user.getFirstName().concat(user.getLastName()).concat(user.getAddressCity()).concat(user.getAddressProvince()).contains(finder))
                 .collect(Collectors.toList());
     }
 
