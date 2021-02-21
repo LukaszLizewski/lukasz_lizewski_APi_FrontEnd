@@ -2,17 +2,13 @@ package com.crud.smogfront.service;
 
 import com.crud.smogfront.client.ApiClient;
 import com.crud.smogfront.domain.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-@Component
+
 public class UserService {
-    @Autowired
-    private ApiClient apiClient;
     private static UserService userService;
     private List<User> listOfUsers;
 
@@ -50,10 +46,12 @@ public class UserService {
     }
 
     private List<User> exampleData() {
-        List<User> listOfUsers = new ArrayList<>();
-        listOfUsers.add(new User(1L, "firsName1", "lastName1","Gdańsk", "Grunwaldzka", "Pomorskie"));
-        listOfUsers.add(new User(2L, "firsName2", "lastName2", "Wrocław", "Grunwaldzka", "Dolnośląskie"));
-        listOfUsers.add(new User(3L, "firsName3", "lastName3", "Koszalin", "Grunwaldzka", "Zachodniopomorskie"));
+        ApiClient apiClient = new ApiClient();
+        listOfUsers = apiClient.getUsers();
+//        List<User> listOfUsers = new ArrayList<>();
+//        listOfUsers.add(new User(1L, "firsName1", "lastName1","Gdańsk", "Grunwaldzka", "Pomorskie"));
+//        listOfUsers.add(new User(2L, "firsName2", "lastName2", "Wrocław", "Grunwaldzka", "Dolnośląskie"));
+//        listOfUsers.add(new User(3L, "firsName3", "lastName3", "Koszalin", "Grunwaldzka", "Zachodniopomorskie"));
         return listOfUsers;
     }
 }

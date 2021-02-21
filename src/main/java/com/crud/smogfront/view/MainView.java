@@ -10,7 +10,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 
-@Route("")
+@Route("") // http://localhost:8080/
 public class MainView extends VerticalLayout {
     private UserService userService = UserService.getInstance();
     private Grid grid = new Grid<>(User.class);
