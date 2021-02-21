@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 //@Component
 public class ApiConfig {
 //    @Value("${api.endpoint.user.get}")
-    private String apiEndpointUserGet = "https://floating-shore-50400.herokuapp.com/v1/smog/user/";
+    private final String apiEndpointUserGet = "https://floating-shore-50400.herokuapp.com/v1/smog/user/";
 //    @Value("${api.endpoint.user.post}")
-    private String apiEndpointUserPost;
+    private final String apiEndpointUserPost = "https://floating-shore-50400.herokuapp.com/v1/smog/user/createUser";
+    private final String apiEndpointUserDelete = "https://floating-shore-50400.herokuapp.com/v1/smog/user/deleteUser";
 }

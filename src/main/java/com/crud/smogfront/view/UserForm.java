@@ -62,13 +62,13 @@ public class UserForm extends FormLayout {
     }
 private void save() {
         User user = binder.getBean();
-        service.save(user);
+        service.postUser(user);
         mainView.refresh();
         setUser(null);
     }
     private void delete() {
         User user = binder.getBean();
-        service.delete(user);
+        service.deleteUser(user);
         mainView.refresh();
         setUser(null);
 
