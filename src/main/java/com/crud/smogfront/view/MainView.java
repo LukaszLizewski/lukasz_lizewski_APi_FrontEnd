@@ -9,13 +9,15 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.PWA;
 
-@Route("smog") // http://localhost:8080/smog
+@Route("") // http://localhost:8080/smog
+@PWA(name = "smogfront", shortName = "smogfront", enableInstallPrompt = false)
 public class MainView extends VerticalLayout {
     private UserService userService = UserService.getInstance();
     private Grid grid = new Grid<>(User.class);
     private TextField filter = new TextField();
-    private UserForm form = new UserForm(this);
+//    private UserForm form = new UserForm(this);
     private Button addNewUser = new Button("Add new user");
 
     public MainView(){
@@ -25,22 +27,22 @@ public class MainView extends VerticalLayout {
         filter.addValueChangeListener(e -> update());
         grid.setColumns("firstName", "lastName", "addressCity","addressProvince");
 
-        addNewUser.addClickListener(e -> {
+       /* addNewUser.addClickListener(e -> {
             grid.asSingleSelect().clear();
             form.setUser(new User());
-        });
+        });*/
 
         HorizontalLayout toolbar = new HorizontalLayout(filter, addNewUser );
 
-        HorizontalLayout mainContent = new HorizontalLayout(grid, form);
+        HorizontalLayout mainContent = new HorizontalLayout(grid /*, form*/);
         mainContent.setSizeFull();
         grid.setSizeFull();
 
         add(toolbar, mainContent);
-        form.setUser(null);
+//        form.setUser(null);
         setSizeFull();
         refresh();
-        grid.asSingleSelect().addValueChangeListener(event -> form.setUser((User) grid.asSingleSelect().getValue()));
+//        grid.asSingleSelect().addValueChangeListener(event -> form.setUser((User) grid.asSingleSelect().getValue()));
     }
     public void refresh() {
         grid.setItems(userService.getData());

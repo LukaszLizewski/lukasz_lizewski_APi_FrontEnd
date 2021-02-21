@@ -11,8 +11,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDto {
-//    @JsonProperty("id")
-//    private Long id;
     @JsonProperty("firstName")
     private String firstName;
     @JsonProperty("lastName")

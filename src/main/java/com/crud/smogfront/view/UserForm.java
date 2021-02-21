@@ -1,3 +1,4 @@
+/*
 package com.crud.smogfront.view;
 
 import com.crud.smogfront.domain.User;
@@ -87,17 +88,20 @@ public class UserForm extends FormLayout {
 
         if (user == null) {
             setVisible(false);
-        /*}else if(user.getFirstName() !=null) {
+        */
+/*}else if(user.getFirstName() !=null) {
             setVisible(true);
             firstName.focus();
             save.isDisableOnClick();
         }else if(user.getFirstName().length()==0) {
             setVisible(true);
             firstName.focus();
-            update.isDisableOnClick();*/
+            update.isDisableOnClick();*//*
+
         } else {
             setVisible(true);
             firstName.focus();
         }
     }
 }
+*/
